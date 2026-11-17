@@ -1,0 +1,4 @@
+Every order tells a story about what customers enjoy! This project explores restaurant sales data to uncover patterns in food preferences, revenue, and customer purchasing behaviour. 
+I used SQL to clean and prepare the raw dataset by creating a separate cleaned table, removing unwanted spaces using TRIM(), handling missing values with UPDATE statements, and standardizing date formats using STR_TO_DATE(). 
+I also used GROUP BY and COUNT() to examine transaction types and validate the cleaned data. Then, I built a three-page interactive Power BI dashboard covering overall sales performance, menu item analysis, sales timing, and payment preferences. 
+With interactive visuals and key performance indicators, the project brings different aspects of restaurant sales together in one place, making it easier to explore trends and understand business performance.
