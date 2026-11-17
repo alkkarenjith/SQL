@@ -1,0 +1,16 @@
+SET SQL_SAFE_UPDATES = 0;
+USE restaurent;
+CREATE TABLE sales_cleaned AS SELECT * FROM sales;
+SELECT * FROM sales_cleaned LIMIT 10;
+UPDATE sales_cleaned SET item_name = TRIM(item_name);
+UPDATE sales_cleaned SET item_type = TRIM(item_type);
+UPDATE sales_cleaned SET transaction_type = TRIM(transaction_type);
+UPDATE sales_cleaned SET received_by = TRIM(received_by);
+UPDATE sales_cleaned SET time_of_sale = TRIM(time_of_sale);
+UPDATE sales_cleaned SET transaction_type = 'Unknown' WHERE transaction_type = '' OR transaction_type IS NULL;
+UPDATE sales_cleaned SET `date` = STR_TO_DATE(REPLACE(`date`, '-', '/'), '%m/%d/%Y');
+SELECT * FROM sales_cleaned LIMIT 10;
+ALTER TABLE sales_cleaned MODIFY `date` DATE;
+SELECT COUNT(*) FROM sales_cleaned WHERE `date` IS NULL;
+SELECT transaction_type, COUNT(*) FROM sales_cleaned GROUP BY transaction_type;
+SELECT * FROM sales_cleaned LIMIT 10;
